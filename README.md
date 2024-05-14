@@ -4,11 +4,11 @@ Task Management App
 
 # App Overview
 
-An full-stack application that allows users to create, organise, and track their tasks. User can log in, create tasks, set due dates, mark task as complete, and categorise task into different projects.
+An application that allows users to create, organise, and track their tasks. User can log in, create tasks, set due dates, mark task as complete, and categorise task into different projects.
 
 # Wireframe
 
-![hifi wireframe]()
+![hifi wireframe](public/docs/TaskTracker%20Wireframe.pdf)
 
 # Screenshots
 
@@ -26,7 +26,6 @@ An full-stack application that allows users to create, organise, and track their
 - Mongoose
 - Passport.js
 - Figma
-- Lucid Charts
 
 # Getting Started
 
