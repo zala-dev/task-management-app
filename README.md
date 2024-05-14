@@ -8,7 +8,7 @@ An application that allows users to create, organise, and track their tasks. Use
 
 # Wireframe
 
-![hifi wireframe](public/docs/TaskTracker%20Wireframe.pdf)
+![hifi wireframe](public/docs/TaskTrackerWireframe.png)
 
 # Screenshots
 
