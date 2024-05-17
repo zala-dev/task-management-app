@@ -15,6 +15,11 @@ const projectSchema = new Schema(
       type: String,
       default: "#8A4E94",
     },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   {
     timestamps: true,
