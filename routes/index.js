@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 const passport = require("passport");
+const dashboardCtrl = require("../controllers/dashboardController");
 
 router.get("/", function (req, res, next) {
   res.render("auth/login.ejs", { title: "Task Tracker" });
@@ -30,5 +31,7 @@ router.get("/logout", function (req, res) {
     res.redirect("/");
   });
 });
+
+router.get("/dashboard", dashboardController.index);
 
 module.exports = router;
