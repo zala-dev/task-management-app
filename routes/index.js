@@ -32,6 +32,7 @@ router.get("/logout", function (req, res) {
   });
 });
 
-router.get("/dashboard", dashboardController.index);
+// Get dashboard page
+router.get("/dashboard", dashboardCtrl.index);
 
 module.exports = router;
