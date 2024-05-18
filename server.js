@@ -11,7 +11,7 @@ require("./config/database");
 require("./config/passport");
 
 var indexRouter = require("./routes/index");
-var taskRouter = require("./routes/tasks");
+var taskRouter = require("./routes/taskRoute");
 var projectRouter = require("./routes/projectRoute");
 
 var app = express();
