@@ -6,7 +6,6 @@ module.exports = {
 };
 
 async function index(req, res) {
-  //   console.log("DASHCTRL USER: ", req.user);
   const messages = [];
   const todaysDate = new Date();
 
@@ -20,8 +19,6 @@ async function index(req, res) {
   if (tasks.length === 0) {
     messages.push("No Tasks Today");
   }
-
-  console.log("Tasks: ", tasks);
 
   // filter today's task
   todaysTasks = tasks.filter((task) => task.dueDate <= todaysDate);
