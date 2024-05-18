@@ -1,0 +1,21 @@
+<%- include('../layouts/header.ejs')%>
+<section class="project-container">
+  <div class="project-title">
+    <h1>My Projects</h1>
+    <a href="/projects/new">Add Project</a>
+    <div class="project-filter">
+      <label for="sort">Sort By:</label>
+      <select name="projects" id="sort">
+        <option value="Recent">Recent</option>
+        <option value="Due Today">Due Today</option>
+      </select>
+    </div>
+  </div>
+  <ul class="projects">
+    <%projects.forEach(project => {%>
+    <li><%= project %></li>
+    <%})%>
+  </ul>
+</section>
+
+<%- include('../layouts/footer.ejs')%>
