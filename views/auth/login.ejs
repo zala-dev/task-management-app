@@ -7,16 +7,21 @@
   <title>Document</title>
 </head>
 
+
+
 <body>
-  <h1>Welcome To <%= title %></h1>
-  <h3>An Efficient Task Management App</h3>
-  <br>
-  <br>
-  <% if(user){%>
-  <a href="/logout">Log Out</a>
-  <%} else { %>
-  <a href="/auth/google">Log In</a>
-  <% } %>
+  <div class="container">
+    <img src="images/logo.png">
+    <h1>Welcome To <%= title %></h1>
+    <h3>An Efficient Task Management App</h3>
+    <br>
+    <br>
+    <% if(user){%>
+    <a href="/logout">Log Out</a>
+    <%} else { %>
+    <a href="/auth/google">Log In</a>
+    <% } %>
+  </div>
 </body>
 
 </html>
