@@ -9,8 +9,10 @@ async function index(req, res) {
   const messages = [];
   const todaysDate = new Date();
 
-  const projects = await Project.find({});
-  const tasks = await Task.find({});
+  const userId = req.user._id;
+
+  const projects = await Project.find({ user: userId });
+  const tasks = await Task.find({ user: userId });
 
   if (projects.length === 0) {
     messages.push("No Projects Found");
