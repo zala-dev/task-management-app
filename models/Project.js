@@ -15,6 +15,7 @@ const projectSchema = new Schema(
       type: String,
       default: "#8A4E94",
     },
+    tasks: [],
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
