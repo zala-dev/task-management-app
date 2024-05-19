@@ -10,4 +10,10 @@ router.get("/new", ensuredLoggedIn, projectCtrl.newProject);
 
 router.post("/", ensuredLoggedIn, projectCtrl.create);
 
+router.delete("/:id", ensuredLoggedIn, projectCtrl.deleteProject);
+
+router.get("/:id/edit", projectCtrl.editProject);
+
+router.put("/:id", projectCtrl.updateProject);
+
 module.exports = router;

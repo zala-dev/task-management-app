@@ -1,0 +1,21 @@
+<%- include('../layouts/header.ejs')%>
+<h1><%= title %></h1>
+<form action="/projects/<%= project.id %>?_method=PUT" method="POST">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" pattern="[A-Za-z ]+" value="<%=project.name%>" required>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required><%=project.description%></textarea>
+  </div>
+  <div>
+    <label for="color">Color:</label>
+    <input type="color" id="color" name="color" required value="<%= project.color%>">
+  </div>
+  <div>
+    <a href="/projects">Go Back</a>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+<%- include('../layouts/footer.ejs')%>
