@@ -4,22 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <title><%= title %></title>
 </head>
 
 <body>
-  <%- include('./aside.ejs')%>
-  <main>
-    <nav>
-      <div class="search-container">
-        <button>Search</button>
-        <input type="text">
-      </div>
-      <div class="user-container">
-        <% if(user) {%>
-        <img src="<%= user.avatar %>" alt="user-img">
-        <p><%= user.name.split(" ")[0] %></p>
-        <a href="/logout">LOG OUT</a>
-        <%}%>
+  <div class="wrapper">
+    <%- include('./aside.ejs')%>
+    <main class="main">
+      <nav>
+        <div class="search-container">
+          <button>Search</button>
+          <input type="text">
+        </div>
+        <div class="user-container">
+          <% if(user) {%>
+          <img src="<%= user.avatar %>" alt="user-img">
+          <p><%= user.name.split(" ")[0] %></p>
+          <a href="/logout">LOG OUT</a>
+          <%}%>
       </div>
     </nav>

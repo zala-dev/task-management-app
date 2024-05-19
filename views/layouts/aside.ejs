@@ -4,22 +4,22 @@
     <h3>TaskTracker</h3>
   </div>
   <ul class="aside-menu">
-    <li>
+    <li <%- title === 'Dashboard' ? 'class="active"' : '' %>>
       <a href="/dashboard">
         DASHBOARD
       </a>
     </li>
-    <li>
+    <li <%- title === 'My Projects' ? 'class="active"' : '' %>>
       <a href="/projects">
         PROJECTS
       </a>
     </li>
-    <li>
+    <li <%- title === 'My Tasks' ? 'class="active"' : '' %>>
       <a href="/tasks">
         TASKS
       </a>
     </li>
-    <li>
+    <li <%- title === 'Calendar' ? 'class="active"' : '' %>>
       <a href="/calendar">
         CALENDAR
       </a>

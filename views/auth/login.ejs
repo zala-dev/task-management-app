@@ -4,24 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title><%= title %></title>
 </head>
-
-
 
 <body>
   <div class="container">
-    <img src="images/logo.png">
+    <div class="login-logo">
+      <img src="images/logo.png">
+      <p>Task<br>Tracker</p>
+    </div>
     <h1>Welcome To <%= title %></h1>
     <h3>An Efficient Task Management App</h3>
-    <br>
-    <br>
     <% if(user){%>
     <a href="/logout">Log Out</a>
     <%} else { %>
-    <a href="/auth/google">Log In</a>
+    <a href="/auth/google"><img src="https://i.imgur.com/FHjYyi0.png">Log in with Google</a>
     <% } %>
   </div>
-</body>
-
-</html>
+  <%- include("../layouts/footer.ejs")%>
