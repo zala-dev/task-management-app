@@ -1,0 +1,21 @@
+<%- include('../layouts/header.ejs')%>
+<section class="task-container">
+  <div class="task-title">
+    <h1>My Tasks</h1>
+    <a href="/tasks/new">Add Task</a>
+    <div class="task-filter">
+      <label for="sort">Sort By:</label>
+      <select name="tasks" id="sort">
+        <option value="Recent">Recent</option>
+        <option value="Due Today">Due Today</option>
+      </select>
+    </div>
+  </div>
+  <ul class="tasks">
+    <%tasks.forEach(task => {%>
+    <li><%= task %></li>
+    <%})%>
+  </ul>
+</section>
+
+<%- include('../layouts/footer.ejs')%>

@@ -1,0 +1,30 @@
+<%- include('../layouts/header.ejs')%>
+<h1><%= title %></h1>
+<form action="/tasks" method="post">
+  <div>
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" required>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea>
+  </div>
+  <div>
+    <label for="dueDate">Due Date:</label><br>
+    <input type="date" id="dueDate" name="dueDate" required>
+  </div>
+  <div>
+    <label>Project:</label>
+    <select name="project">
+      <% projects.forEach(name => {%>
+      <option value="<%= name %>"><%= name %></option>
+      <%})%>
+      <option value="not required" selected>Not Required</option>
+    </select>
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+  <p><%= errorMsg %></p>
+</form>
+<%- include('../layouts/footer.ejs')%>
