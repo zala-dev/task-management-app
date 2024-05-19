@@ -35,6 +35,8 @@ async function create(req, res) {
 
   try {
     await Task.create(newTask);
+    project.tasks.push({ title, description, dueDate });
+    await project.save();
     console.log("Task created... Redirecting to dashbaord...");
     res.redirect("/tasks");
   } catch (err) {
