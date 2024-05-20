@@ -15,6 +15,10 @@ const projectSchema = new Schema(
       type: String,
       default: "#8A4E94",
     },
+    isComplete: {
+      type: Boolean,
+      default: false,
+    },
     tasks: [],
     user: {
       type: mongoose.Schema.Types.ObjectId,
