@@ -10,7 +10,8 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const projects = await Project.find({});
+  const userId = req.user._id;
+  const projects = await Project.find({ user: userId });
   if (!projects) return;
 
   res.render("projects/projectList", { title: "My Projects", projects });

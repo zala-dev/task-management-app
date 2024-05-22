@@ -8,7 +8,8 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const tasks = await Task.find({});
+  const userId = req.user._id;
+  const tasks = await Task.find({ user: userId });
   if (!tasks) return;
   res.render("tasks/taskList", { title: "My Tasks", tasks });
 }
