@@ -1,3 +1,7 @@
+/* Web Fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +14,8 @@ html {
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
   line-height: 1.8;
   font-size: 1.6rem;
   color: #2a2425;
@@ -19,6 +24,33 @@ body {
 
 a {
   text-decoration: none;
+}
+
+/* Icons */
+
+.material-icons-outlined {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2.4rem;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
 }
 
 /* Login Page */
@@ -94,7 +126,7 @@ a {
 }
 
 .aside {
-  width: 12dvw;
+  width: 20%;
   background-color: #fff;
   border-top-right-radius: 10rem;
   border-bottom-right-radius: 10rem;
@@ -107,10 +139,11 @@ a {
 .aside .logo-container {
   text-align: center;
   margin: 10vh 0;
+  font-size: 2.5rem;
 }
 
 .aside .logo-container img {
-  width: 4.5rem;
+  width: 6rem;
 }
 
 .aside-menu {
@@ -118,7 +151,7 @@ a {
 }
 
 .aside-menu li {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   padding: 1rem 1.75rem;
   margin: 1rem 0;
   border-left: 0.5rem solid transparent;
@@ -144,11 +177,156 @@ a {
 .main {
   display: flex;
   flex-direction: column;
-  width: calc(100dvw - 12dvw);
+  width: 80%;
+  margin: 4vh 0;
+  padding: 3rem;
 }
 
 .main nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 11rem;
+}
+
+.main nav .user-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-left: auto;
+  gap: 1rem;
+}
+
+.main nav .user-container img {
+  width: 4.5rem;
+  border-radius: 50%;
+}
+.main nav .user-container p {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.main nav .user-container a span {
+  vertical-align: middle;
+  font-size: 3.5rem;
+  color: #2a2425;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.content-wrapper .aside-right {
+  background-color: #fff;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 3rem;
+}
+
+.page-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.page-title h1 {
+  font-size: 3.5rem;
+}
+
+.page-title a span {
+  vertical-align: middle;
+  font-size: 5rem;
+}
+
+.page-filter {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.page-filter label {
+  margin-right: 15px;
+  color: #727272;
+  font-size: 16px;
+}
+
+.page-filter select {
+  border: none;
+  font-size: 16px;
+  background-color: rgba(0 0 0 / 0);
+  font-size: 1.6rem;
+}
+
+/* Project List */
+
+.project-container .project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+
+.projects-container .project-list .project h2 {
+  font-size: 20px;
+  line-height: 0;
+}
+
+.project-container .project-list .project p {
+  color: #727272;
+}
+
+.project-container .project-list .project {
+  padding: 20px 20px 20px 60px;
+  background-color: #fff;
+  box-shadow: 1px 1px 40px rgba(0 0 0 / 0.01);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  position: relative;
+  width: 30%;
+}
+
+.project-container .project-list .project .color {
+  width: 30px;
+  height: 50px;
+
+  border-radius: 0px 10px 10px 0px;
+  position: absolute;
+  left: 0;
+}
+
+.project-container .project-list .project .card-action {
+  display: flex;
+  margin-top: 2rem;
+  width: 100%;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+}
+
+.project-container .project-list .project .card-action span {
+  vertical-align: middle;
+  color: #2a2425;
+}
+
+.project-container .project-list .project .card-action {
+  font-size: 2rem;
+}
+.project-container .project-list .project .card-action input[type="checkbox"] {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.4rem;
+  cursor: pointer;
+}
+
+.project-container .project-list .project .card-action button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
