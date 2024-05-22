@@ -1,26 +1,21 @@
 <%- include('./header.ejs')%>
-<section class="dashboard-container">
+<div class="dashboard-header">
   <div class="dashboard-title">
     <h1>My Projects</h1>
-    <a href="/projects/new">Add Project</a>
-    <div class="dashboard-filter">
-      <label for="sort">Sort By:</label>
-      <select name="projects" id="sort">
-        <option value="Recent">Recent</option>
-        <option value="Due Today">Due Today</option>
-      </select>
-    </div>
   </div>
+</div>
+<div class="content-wrapper">
   <div class="dashboard-projects">
     <%projects.forEach(project => {%>
     <div><%= project.name %></div>
     <%})%>
   </div>
-</section>
-<aside class="aside-right">
-  <h1>Tasks</h1>
-  <% todaysTasks.forEach(task => {%>
-  <div><%=task.title%></div>
-  <%})%>
-</aside>
+  <aside class="aside-right">
+    <h1>Tasks</h1>
+    <% todaysTasks.forEach(task => {%>
+    <div><%=task.title%></div>
+    <%})%>
+  </aside>
+</div>
+
 <%- include('./footer.ejs')%>

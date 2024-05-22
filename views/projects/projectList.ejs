@@ -1,26 +1,47 @@
 <%- include('../layouts/header.ejs')%>
 <section class="project-container">
-  <div class="project-title">
-    <h1>My Projects</h1>
-    <a href="/projects/new">Add Project</a>
-    <div class="project-filter">
-      <label for="sort">Sort By:</label>
-      <select name="projects" id="sort">
-        <option value="Recent">Recent</option>
-        <option value="Due Today">Due Today</option>
+  <div class="page-header">
+    <div class="page-title">
+      <h1>My Projects</h1>
+      <a href="/projects/new"><span class="material-symbols-outlined">
+          add_box
+        </span></a>
+    </div>
+    <div class="page-filter">
+      <label for="sort">Sort By</label>
+      <select name="sort" id="projectFilter">
+        <option value="">...</option>
+        <option value="recent" selected>Recent Project</option>
+        <option value="finished">Finished Project</option>
+        <option value="ongoing">Ongoing Project</option>
+        <option value="stalled">Stalled Project</option>
       </select>
     </div>
   </div>
-  <ul class="projects">
+  <!-- Project List -->
+  <div class="project-list">
     <%projects.forEach(project => {%>
-    <li><%= project %></li>
-    <form action="/projects/<%= project.id %>?_method=DELETE" method="POST">
-      <button type="submit">X</button>
-    </form>
-    <a href="/projects/<%= project.id %>/edit">Edit Project</a>
+    <div class="project">
+      <div class="color" style="<%= project.color ? 'background-color: ' + project.color : '' %>"></div>
+      <h2><%= project.name %></h2>
+      <p><%= project.description %></p>
+      <p>Total tasks: <%= project.tasks.length%></p>
 
+      <div class="card-action">
+        <input type="checkbox" name="check">
+        <form action="/projects/<%= project.id %>?_method=DELETE" method="POST">
+          <button type="submit">
+            <span class="material-symbols-outlined">delete</span>
+          </button>
+        </form>
+
+        <a href="/projects/<%= project.id %>/edit"><span class="material-symbols-outlined">edit</span></a>
+      </div>
+
+    </div>
     <%})%>
-  </ul>
+  </div>
+  <!-- Project End -->
 </section>
 
 <%- include('../layouts/footer.ejs')%>
