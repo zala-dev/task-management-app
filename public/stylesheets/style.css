@@ -108,7 +108,7 @@ a {
   border-radius: 1.5rem;
   color: inherit;
   border: 0.2rem solid transparent;
-  transition: all;
+  transition: all 0.3s ease;
 }
 
 .container a img {
@@ -155,7 +155,7 @@ a {
   padding: 1rem 1.75rem;
   margin: 1rem 0;
   border-left: 0.5rem solid transparent;
-  transition: all ease;
+  transition: all 0.3s ease;
 }
 
 .aside-menu li:hover {
@@ -252,15 +252,14 @@ a {
 }
 
 .page-filter label {
-  margin-right: 15px;
+  margin-right: 1.5rem;
   color: #727272;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .page-filter select {
   border: none;
-  font-size: 16px;
-  background-color: rgba(0 0 0 / 0);
+  background-color: rgba(0, 0, 0, 0);
   font-size: 1.6rem;
 }
 
@@ -270,10 +269,11 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 4rem;
+  margin-top: 4.5rem;
 }
 
 .projects-container .project-list .project h2 {
-  font-size: 20px;
+  font-size: 2rem;
   line-height: 0;
 }
 
@@ -282,20 +282,19 @@ a {
 }
 
 .project-container .project-list .project {
-  padding: 20px 20px 20px 60px;
+  padding: 2rem 2rem 2rem 6rem;
   background-color: #fff;
-  box-shadow: 1px 1px 40px rgba(0 0 0 / 0.01);
-  margin-bottom: 20px;
-  border-radius: 10px;
+  box-shadow: 0.1rem 0.1rem 4rem rgba(0, 0, 0, 0.01);
+  margin-bottom: 2rem;
+  border-radius: 1rem;
   position: relative;
   width: 30%;
 }
 
 .project-container .project-list .project .color {
-  width: 30px;
-  height: 50px;
-
-  border-radius: 0px 10px 10px 0px;
+  width: 3rem;
+  height: 5rem;
+  border-radius: 0 1rem 1rem 0;
   position: absolute;
   left: 0;
 }
@@ -329,4 +328,19 @@ a {
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+/* Pagination */
+.pagination {
+  margin-bottom: 1rem;
+}
+
+.pagination a {
+  margin-right: 1rem;
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+.pagination a:hover {
+  text-decoration: underline;
 }

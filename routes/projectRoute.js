@@ -16,4 +16,6 @@ router.get("/:id/edit", projectCtrl.editProject);
 
 router.put("/:id", projectCtrl.updateProject);
 
+router.post("/:id/toggle", projectCtrl.toggleIsComplete);
+
 module.exports = router;

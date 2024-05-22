@@ -1,12 +1,15 @@
 <%- include('../layouts/header.ejs')%>
 <section class="project-container">
   <div class="page-header">
+    <!-- Project Title -->
     <div class="page-title">
-      <h1>My Projects</h1>
-      <a href="/projects/new"><span class="material-symbols-outlined">
-          add_box
-        </span></a>
+      <h1><%= title %></h1>
+      <!-- Add Project Btn-->
+      <a href="/projects/new"><span class="material-symbols-outlined">add_box</span></a>
+      <!-- Add Project Btn Ends-->
     </div>
+    <!-- Project Title Ends -->
+    <!-- Project Filter  -->
     <div class="page-filter">
       <label for="sort">Sort By</label>
       <select name="sort" id="projectFilter">
@@ -17,31 +20,76 @@
         <option value="stalled">Stalled Project</option>
       </select>
     </div>
+    <!-- Project Filter Ends -->
   </div>
   <!-- Project List -->
   <div class="project-list">
-    <%projects.forEach(project => {%>
-    <div class="project">
+    <% if (projects.length === 0) { %>
+    <p>Please add a project.</p>
+    <% } else { %>
+    <% projects.forEach(project => { %>
+    <div class="project" id="project-<%= project._id %>" style="<%= project.isComplete ? 'filter: blur(2px) grayscale(1);' : '' %>">
       <div class="color" style="<%= project.color ? 'background-color: ' + project.color : '' %>"></div>
       <h2><%= project.name %></h2>
       <p><%= project.description %></p>
-      <p>Total tasks: <%= project.tasks.length%></p>
-
+      <p>Total tasks: <%= project.tasks.length %></p>
       <div class="card-action">
-        <input type="checkbox" name="check">
-        <form action="/projects/<%= project.id %>?_method=DELETE" method="POST">
-          <button type="submit">
-            <span class="material-symbols-outlined">delete</span>
-          </button>
+        <input type="checkbox" name="check" class="checkbox-filter-none" <% if (project.isComplete) { %> checked <% } %> onchange="toggleComplete('<%= project._id %>')">
+        <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
+          <button type="submit"><span class="material-symbols-outlined">delete</span></button>
         </form>
-
-        <a href="/projects/<%= project.id %>/edit"><span class="material-symbols-outlined">edit</span></a>
+        <a href="/projects/<%= project._id %>/edit"><span class="material-symbols-outlined">edit</span></a>
       </div>
-
     </div>
-    <%})%>
+    <% }); %>
+    <% } %>
   </div>
-  <!-- Project End -->
+  <!-- Project List Ends -->
+  <!-- Pagination Buttons -->
+  <div class="pagination">
+    <% if (currentPage > 1) { %>
+    <a href="?page=<%= currentPage - 1 %>">Previous</a>
+    <% } %>
+    <% if (currentPage < totalPages) { %>
+    <a href="?page=<%= currentPage + 1 %>">Next</a>
+    <% } %>
+  </div>
+  <!--Pagination Buttons Ends -->
 </section>
-
 <%- include('../layouts/footer.ejs')%>
+
+<!-- Helper Function -->
+<script>
+  async function toggleComplete(projectId) {
+    try {
+      const response = await fetch(`/projects/${projectId}/toggle`, {
+        method: 'POST',
+      });
+
+      console.log(response);
+
+      if (response.ok) {
+        const projectEl = document.getElementById(`project-${projectId}`);
+        const checkbox = projectEl.querySelector('input[type="checkbox"]');
+
+        console.log(projectEl)
+
+        // Update the isComplete
+        const isComplete = checkbox.checked;
+
+        // Toggle styles
+        if (isComplete) {
+          projectEl.style.filter = 'blur(2px) grayscale(1)';
+          checkbox.style.filter = "";
+        } else {
+          projectEl.style.filter = '';
+        }
+      } else {
+        throw new Error('Failed to toggle isComplete status');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+</script>
+<!-- Helper Function Ends -->
