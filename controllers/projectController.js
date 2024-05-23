@@ -106,7 +106,6 @@ async function editProject(req, res) {
 
 async function updateProject(req, res) {
   await Project.updateOne({ _id: req.params.id }, req.body);
-  console.log("UPDATED PROJECT: ", req.body);
   res.redirect("/projects");
 }
 
