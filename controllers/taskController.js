@@ -1,18 +1,20 @@
 const Task = require("../models/Task");
 const Project = require("../models/Project");
 
+const mongoose = require("mongoose");
+
 module.exports = {
   index,
   create,
   newTask,
   deleteTask,
+  editTask,
+  updateTask,
 };
 
 async function index(req, res) {
   const userId = req.user._id;
   const tasks = await Task.find({ user: userId }).populate("project");
-
-  console.log("Tasks List: ", tasks);
 
   if (!tasks) return;
   res.render("tasks/taskList", { title: "My Tasks", tasks });
@@ -67,5 +69,23 @@ async function newTask(req, res) {
 
 async function deleteTask(req, res) {
   await Task.deleteOne({ _id: req.params.id });
+  res.redirect("/tasks");
+}
+
+async function editTask(req, res) {
+  const userId = req.user.id;
+
+  const task = await Task.findOne({ _id: req.params.id }).populate("project");
+  const projects = await Project.find({ user: userId });
+
+  res.render("tasks/editTask", {
+    task,
+    projects,
+    title: "Edit Project",
+  });
+}
+
+async function updateTask(req, res) {
+  await Task.updateOne({ _id: req.params.id }, req.body);
   res.redirect("/tasks");
 }
