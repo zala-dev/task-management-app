@@ -1,21 +1,25 @@
 <%- include('../layouts/header.ejs')%>
 <h1><%= title %></h1>
-<form action="/projects" method="post">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" pattern="[A-Za-z ]+" required>
-  </div>
-  <div>
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required></textarea>
-  </div>
-  <div>
-    <label for="color">Color:</label>
-    <input type="color" id="color" name="color" required>
-  </div>
-  <div>
-    <input type="submit" value="Submit">
-  </div>
-  <p><%= errorMsg %></p>
-</form>
+<div class="form-content">
+  <form action="/projects" method="post" class="form-container">
+    <div class="form-group">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" id="name" name="name" pattern="[A-Za-z ]+" required class="form-input">
+    </div>
+    <div class="form-group">
+      <label for="description" class="form-label">Description:</label>
+      <textarea id="description" name="description" required class="form-textarea"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="color" class="form-label">Color:</label>
+      <input type="color" id="color" name="color" required class="form-color">
+    </div>
+    <div class="form-group">
+      <a href="/projects">Go Back</a>
+      <button type="submit">Add</button>
+    </div>
+  </form>
+</div>
+
+
 <%- include('../layouts/footer.ejs')%>

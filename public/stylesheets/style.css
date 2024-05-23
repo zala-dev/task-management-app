@@ -1,7 +1,15 @@
-/* Web Fonts */
+/* Root variables */
+:root {
+  --font-size-base: 1.6rem;
+  --color-text: #2a2425;
+  --color-background: #e4e9f2;
+  --color-primary: #1b06bc;
+}
 
+/* Web Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +21,7 @@ html {
   box-sizing: inherit;
 }
 
+/* Base Styles */
 body {
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
@@ -20,6 +29,7 @@ body {
   font-size: 1.6rem;
   color: #2a2425;
   background-color: #e4e9f2;
+  overflow-x: hidden;
 }
 
 a {
@@ -27,7 +37,6 @@ a {
 }
 
 /* Icons */
-
 .material-icons-outlined {
   font-family: "Material Icons";
   font-weight: normal;
@@ -54,7 +63,6 @@ a {
 }
 
 /* Login Page */
-
 .container {
   position: relative;
   display: flex;
@@ -159,13 +167,13 @@ a {
 }
 
 .aside-menu li:hover {
-  color: #8a4e94;
-  border-left: 0.5rem solid #8a4e94;
+  color: var(--color-primary);
+  border-left: 0.5rem solid var(--color-primary);
 }
 
 .aside-menu li.active {
-  color: #8a4e94;
-  border-left: 0.5rem solid #8a4e94;
+  color: var(--color-primary);
+  border-left: 0.5rem solid var(--color-primary);
 }
 
 .aside-menu li a {
@@ -208,7 +216,7 @@ a {
 .main nav .user-container a span {
   vertical-align: middle;
   font-size: 3.5rem;
-  color: #2a2425;
+  color: var(--color-primary);
 }
 
 .content-wrapper {
@@ -243,6 +251,7 @@ a {
 .page-title a span {
   vertical-align: middle;
   font-size: 5rem;
+  color: var(--color-primary);
 }
 
 .page-filter {
@@ -264,7 +273,6 @@ a {
 }
 
 /* Project List */
-
 .project-container .project-list {
   display: flex;
   flex-wrap: wrap;
@@ -316,6 +324,7 @@ a {
 .project-container .project-list .project .card-action {
   font-size: 2rem;
 }
+
 .project-container .project-list .project .card-action input[type="checkbox"] {
   width: 2rem;
   height: 2rem;
@@ -343,4 +352,80 @@ a {
 
 .pagination a:hover {
   text-decoration: underline;
+}
+
+/* Add  and Edit Form */
+.form-content form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  margin-top: 2rem;
+}
+
+.form-content .form-group {
+  margin-bottom: 2rem;
+}
+
+.form-content label {
+  display: block;
+  margin: 0 0 1rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.form-content input[type="text"],
+.form-content textarea {
+  outline: none;
+  display: block;
+  background: rgba(255, 254, 254, 0.918);
+  width: 100%;
+  border: 0;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  padding: 1.2rem 2rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: inherit;
+  transition: 0.3s ease;
+}
+
+.form-content input[type="text"]:focus,
+.form-content textarea:focus {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.form-content textarea {
+  resize: vertical;
+}
+
+.form-content .form-group a {
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  margin-right: 1rem;
+}
+
+.form-content .form-group button {
+  outline: none;
+  background: var(--color-primary);
+  width: 100%;
+  border: 0;
+  border-radius: 0.4rem;
+  padding: 1.2rem 2rem;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.form-content .form-group button:hover {
+  background: var(--color-primary);
 }
