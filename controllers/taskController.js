@@ -5,6 +5,7 @@ module.exports = {
   index,
   create,
   newTask,
+  deleteTask,
 };
 
 async function index(req, res) {
@@ -62,4 +63,9 @@ async function newTask(req, res) {
     projects: projectNames,
     errorMsg: "",
   });
+}
+
+async function deleteTask(req, res) {
+  await Task.deleteOne({ _id: req.params.id });
+  res.redirect("/tasks");
 }

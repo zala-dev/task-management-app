@@ -10,4 +10,6 @@ router.get("/new", ensuredLoggedIn, taskCtrl.newTask);
 
 router.post("/", ensuredLoggedIn, taskCtrl.create);
 
+router.delete("/:id", ensuredLoggedIn, taskCtrl.deleteTask);
+
 module.exports = router;
