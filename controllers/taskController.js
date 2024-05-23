@@ -9,7 +9,10 @@ module.exports = {
 
 async function index(req, res) {
   const userId = req.user._id;
-  const tasks = await Task.find({ user: userId });
+  const tasks = await Task.find({ user: userId }).populate("project");
+
+  console.log("Tasks List: ", tasks);
+
   if (!tasks) return;
   res.render("tasks/taskList", { title: "My Tasks", tasks });
 }
@@ -53,7 +56,6 @@ async function newTask(req, res) {
   const userId = req.user._id;
   const allProjects = await Project.find({ user: userId });
   const projectNames = allProjects.map((project) => project.name);
-  console.log("Project List: ", projectNames);
 
   res.render("tasks/createTask", {
     title: "Add Task",
