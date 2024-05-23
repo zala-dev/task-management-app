@@ -1,21 +1,53 @@
 <%- include('../layouts/header.ejs')%>
 <section class="task-container">
-  <div class="task-title">
-    <h1>My Tasks</h1>
-    <a href="/tasks/new">Add Task</a>
-    <div class="task-filter">
-      <label for="sort">Sort By:</label>
-      <select name="tasks" id="sort">
-        <option value="Recent">Recent</option>
-        <option value="Due Today">Due Today</option>
+  <div class="page-header">
+    <!-- Task Title -->
+    <div class="page-title">
+      <h1><%= title %></h1>
+      <!-- Add Task Btn-->
+      <a href="/Tasks/new"><span class="material-symbols-outlined">add_box</span></a>
+      <!-- Add Task Btn Ends-->
+    </div>
+    <!-- Task Title Ends -->
+    <!-- Task Filter  -->
+    <div class="page-filter">
+      <label for="sort">Sort By</label>
+      <select name="sort" id="TaskFilter">
+        <option value="">...</option>
+        <option value="recent" selected>Recent Task</option>
+        <option value="finished">Finished Task</option>
+        <option value="ongoing">Ongoing Task</option>
+        <option value="stalled">Stalled Task</option>
       </select>
     </div>
+    <!-- Task Filter Ends -->
   </div>
-  <ul class="tasks">
-    <%tasks.forEach(task => {%>
-    <li><%= task %></li>
-    <%})%>
-  </ul>
-</section>
+  <!-- Task List -->
+  <div class="task-list">
+    <% if (tasks.length === 0) { %>
+    <p>Please add a task.</p>
+    <% } else { %>
+    <% tasks.forEach(task => { %>
+    <div class="task" id="task-<%= task._id %>" style="<%= task.isComplete ? 'filter: blur(2px) grayscale(1);' : '' %>">
+      <div class="card-content">
+        <h2><%= task.title %></h2>
+        <textarea rows="4"><%= task.description %></textarea>
+        <% if (task.project && task.project.name) { %>
+        <p><span>Project: </span><%= task.project.name %> </p>
+        <% } %>
+      </div>
 
+      <div class="card-action">
+        <input type="checkbox" name="check" class="checkbox-filter-none" <% if (task.isComplete) { %> checked <% } %> onchange="toggleComplete('<%= task._id %>')">
+        <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
+          <button type="submit"><span class="material-symbols-outlined">delete</span></button>
+        </form>
+        <a href="/tasks/<%= task._id %>/edit"><span class="material-symbols-outlined">edit</span></a>
+      </div>
+    </div>
+    <% }); %>
+    <% } %>
+  </div>
+  <!-- Task List Ends -->
+</section>
 <%- include('../layouts/footer.ejs')%>

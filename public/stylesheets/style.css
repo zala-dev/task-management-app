@@ -285,7 +285,8 @@ a {
   line-height: 0;
 }
 
-.project-container .project-list .project p {
+.project-container .project-list .project p,
+.task-container .task-list .task p {
   color: #727272;
 }
 
@@ -316,27 +317,95 @@ a {
   gap: 2rem;
 }
 
-.project-container .project-list .project .card-action span {
+.project-container .project-list .project .card-action span,
+.task-container .task-list .task .card-action span {
   vertical-align: middle;
   color: #2a2425;
 }
 
-.project-container .project-list .project .card-action {
+.project-container .project-list .project .card-action,
+.task-container .task-list .task .card-action {
   font-size: 2rem;
 }
 
-.project-container .project-list .project .card-action input[type="checkbox"] {
+.project-container .project-list .project .card-action input[type="checkbox"],
+.task-container .task-list .task .card-action input[type="checkbox"] {
   width: 2rem;
   height: 2rem;
   margin-top: 0.4rem;
   cursor: pointer;
 }
 
-.project-container .project-list .project .card-action button {
+.project-container .project-list .project .card-action button,
+.task-container .task-list .task .card-action button {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+/* Task List  */
+.task-container .task-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin-top: 4.5rem;
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.task-container .task-list .task {
+  background-color: #fff;
+  border-right: 1rem solid var(--color-primary);
+  box-shadow: 0.1rem 0.1rem 4rem rgba(0, 0, 0, 0.01);
+  border-radius: 1rem;
+  width: 38%;
+  height: 19rem;
+
+  display: flex;
+  padding: 0.7rem 2.5rem;
+}
+
+.task-container .task-list .task .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 2;
+}
+
+.task-container .task-list .task h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.task-container .task-list .task .card-content textarea {
+  resize: none;
+  width: 100%;
+  border: #727272;
+}
+
+.task-container .task-list .task .card-content p {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  color: #727272;
+}
+.task-container .task-list .task .card-content p span {
+  text-transform: uppercase;
+  color: var(--color-text);
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-right: 1.5rem;
+}
+
+.task-container .task-list .task .card-action {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 /* Pagination */
