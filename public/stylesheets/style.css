@@ -448,7 +448,8 @@ a {
 }
 
 .form-content input[type="text"],
-.form-content textarea {
+.form-content textarea,
+.form-content select {
   outline: none;
   display: block;
   background: rgba(255, 254, 254, 0.918);
