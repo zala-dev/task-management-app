@@ -121,10 +121,14 @@ async function editTask(req, res) {
     // Find all projects associated with the logged-in user
     const projects = await Project.find({ user: userId });
 
+    // Formatte the date from the task's dueDate
+    const formattedDueDate = task.dueDate.toISOString().split("T")[0];
+
     // Render the edit task form with task details and available projects
     res.render("tasks/editTask", {
       task,
       projects,
+      formattedDueDate,
       title: "Edit Project",
     });
   } catch (err) {
@@ -138,6 +142,9 @@ async function updateTask(req, res) {
   try {
     const taskId = req.params.id;
     const newProjectId = req.body.project;
+
+    // convert date to mongoose compatible format
+    req.body.dueDate = new Date(req.body.dueDate);
 
     // Fetch the task by ID
     const task = await Task.findById(taskId);
