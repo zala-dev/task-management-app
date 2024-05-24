@@ -66,13 +66,11 @@
         method: 'POST',
       });
 
-      console.log(response);
 
       if (response.ok) {
         const projectEl = document.getElementById(`project-${projectId}`);
         const checkbox = projectEl.querySelector('input[type="checkbox"]');
 
-        console.log(projectEl)
 
         // Update the isComplete
         const isComplete = checkbox.checked;
