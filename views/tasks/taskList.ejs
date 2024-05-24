@@ -31,7 +31,7 @@
     <div class="task" id="task-<%= task._id %>" style="<%= task.isComplete ? 'filter: blur(2px) grayscale(1);' : '' %>">
       <div class="card-content">
         <h2><%= task.title %></h2>
-        <textarea rows="4"><%= task.description %></textarea>
+        <textarea class="textarea" rows="4" readonly><%= task.description %></textarea>
         <% if (task.project && task.project.name) { %>
         <p><span>Project: </span><%= task.project.name %> </p>
         <% } %>
