@@ -4,7 +4,7 @@
   <form action="/tasks/<%= task.id %>?_method=PUT" method="POST">
     <div class="form-group">
       <label for="name">Task Name</label>
-      <input type="text" id="name" name="name" pattern="[A-Za-z ]+" value="<%=task.title%>" required>
+      <input type="text" id="name" name="title" pattern="[A-Za-z ]+" value="<%=task.title%>" required>
     </div>
     <div class="form-group">
       <label for="description">Description</label>

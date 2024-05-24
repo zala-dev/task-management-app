@@ -1,8 +1,6 @@
 const Task = require("../models/Task");
 const Project = require("../models/Project");
 
-const mongoose = require("mongoose");
-
 module.exports = {
   index,
   create,
@@ -15,6 +13,8 @@ module.exports = {
 async function index(req, res) {
   const userId = req.user._id;
   const tasks = await Task.find({ user: userId }).populate("project");
+
+  console.log("TASK LIST AFTER UPDATE: ", tasks);
 
   if (!tasks) return;
   res.render("tasks/taskList", { title: "My Tasks", tasks });
@@ -86,6 +86,7 @@ async function editTask(req, res) {
 }
 
 async function updateTask(req, res) {
+  console.log("UPDATE TASK : ", req.body);
   await Task.updateOne({ _id: req.params.id }, req.body);
   res.redirect("/tasks");
 }
