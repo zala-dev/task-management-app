@@ -14,7 +14,7 @@
       <label>Project:</label>
       <select name="project">
         <% projects.forEach(project => { %>
-        <option value="<%= project._id %>" <%= project._id.toString() === task.project._id.toString() ? 'selected' : '' %>>
+        <option value="<%= project._id %>" <%= task.project && project._id.toString() === task.project._id.toString() ? 'selected' : '' %>>
           <%= project.name %>
         </option>
         <% }) %>
