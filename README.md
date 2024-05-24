@@ -29,5 +29,6 @@ An application that allows users to create, organise, and track their tasks. Use
 
 # Getting Started
 
-[App Url]()
-[Trello board](https://trello.com/b/n6fC5Nhs/task-manager)
+# [App Url](https://tasktracker-tyjo.onrender.com/)
+
+# [Trello board](https://trello.com/b/n6fC5Nhs/task-manager)
