@@ -51,3 +51,37 @@
   <!-- Task List Ends -->
 </section>
 <%- include('../layouts/footer.ejs')%>
+
+<!-- Helper Function -->
+<script>
+  async function toggleComplete(taskId) {
+    try {
+      const response = await fetch(`/tasks/${taskId}/toggle`, {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+        const taskEl = document.getElementById(`task-${taskId}`);
+        const checkbox = taskEl.querySelector('input[type="checkbox"]');
+
+        console.log(taskEl)
+
+        // Update the isComplete
+        const isComplete = checkbox.checked;
+
+        // Toggle styles
+        if (isComplete) {
+          taskEl.style.filter = 'blur(2px) grayscale(1)';
+          checkbox.style.filter = "";
+        } else {
+          taskEl.style.filter = '';
+        }
+      } else {
+        throw new Error('Failed to toggle isComplete status');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+</script>
+<!-- Helper Function Ends -->

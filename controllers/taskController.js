@@ -8,6 +8,7 @@ module.exports = {
   deleteTask,
   editTask,
   updateTask,
+  toggleIsComplete,
 };
 
 async function index(req, res) {
@@ -89,4 +90,24 @@ async function updateTask(req, res) {
   console.log("UPDATE TASK : ", req.body);
   await Task.updateOne({ _id: req.params.id }, req.body);
   res.redirect("/tasks");
+}
+
+async function toggleIsComplete(req, res) {
+  try {
+    const taskId = req.params.id;
+    const task = await Task.findById(taskId);
+
+    if (!task) {
+      return res.status(404).json({ error: "Task not found" });
+    }
+
+    task.isComplete = !task.isComplete;
+
+    await task.save();
+
+    res.redirect("/tasks");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 }

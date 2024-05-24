@@ -16,4 +16,6 @@ router.get("/:id/edit", ensuredLoggedIn, taskCtrl.editTask);
 
 router.put("/:id", ensuredLoggedIn, taskCtrl.updateTask);
 
+router.post("/:id/toggle", taskCtrl.toggleIsComplete);
+
 module.exports = router;
