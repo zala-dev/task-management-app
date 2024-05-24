@@ -11,6 +11,10 @@
       <textarea name="description" required><%=task.description%></textarea>
     </div>
     <div class="form-group">
+      <label for="dueDate">Due Date:</label>
+      <input type="date" id="dueDate" name="dueDate" value="<%=formattedDueDate%>" required>
+    </div>
+    <div class="form-group">
       <label>Project:</label>
       <select name="project">
         <% projects.forEach(project => { %>
