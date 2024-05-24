@@ -32,7 +32,7 @@
       <div class="color" style="<%= project.color ? 'background-color: ' + project.color : '' %>"></div>
       <h2><%= project.name %></h2>
       <p><%= project.description %></p>
-      <p>Total <a href="/tasks" style="text-decoration: underline">Tasks:</a> <%= project.tasks.length %></p>
+      <p class="total-task">Total <a href="/tasks" style="text-decoration: underline">Tasks:</a> <%= project.tasks.length %></p>
       <div class="card-action">
         <input type="checkbox" name="check" class="checkbox-filter-none" <% if (project.isComplete) { %> checked <% } %> onchange="toggleComplete('<%= project._id %>')">
         <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
