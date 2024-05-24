@@ -1,29 +1,34 @@
 <%- include('../layouts/header.ejs')%>
 <h1><%= title %></h1>
-<form action="/tasks" method="post">
-  <div>
-    <label for="title">Title:</label><br>
-    <input type="text" id="title" name="title" required>
-  </div>
-  <div>
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required></textarea>
-  </div>
-  <div>
-    <label for="dueDate">Due Date:</label><br>
-    <input type="date" id="dueDate" name="dueDate" required>
-  </div>
-  <div>
-    <label>Project:</label>
-    <select name="project">
-      <% projects.forEach(name => {%>
-      <option value="<%= name %>"><%= name %></option>
-      <%})%>
-    </select>
-  </div>
-  <div>
-    <input type="submit" value="Submit">
-  </div>
-  <p><%= errorMsg %></p>
-</form>
+<div class="form-content">
+  <form action="/tasks" method="post" class="form-container">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="dueDate">Due Date:</label>
+      <input type="date" id="dueDate" name="dueDate" required>
+    </div>
+    <div class="form-group">
+      <label for="project">Project:</label>
+      <select name="project">
+        <% projects.forEach(name => {%>
+        <option value="<%= name %>"><%= name %></option>
+        <%})%>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit">Submit</button>
+    </div>
+    <% if (errorMsg) { %>
+    <p><%= errorMsg %></p>
+    <% } %>
+  </form>
+</div>
+
 <%- include('../layouts/footer.ejs')%>
