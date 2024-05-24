@@ -424,12 +424,13 @@ a {
 }
 
 /* Add  and Edit Form */
+
 .form-content form {
   display: flex;
   flex-direction: column;
-  width: 50%;
 
-  margin-top: 2rem;
+  margin-top: 3rem;
+  width: 60%;
 }
 
 .form-content .form-group {
@@ -448,6 +449,7 @@ a {
 }
 
 .form-content input[type="text"],
+.form-content input[type="date"],
 .form-content textarea,
 .form-content select {
   outline: none;
@@ -459,6 +461,7 @@ a {
   box-sizing: border-box;
   padding: 1.2rem 2rem;
   color: rgba(0, 0, 0, 0.6);
+  font-family: inherit;
   font-size: 1.4rem;
   font-weight: 500;
   line-height: inherit;
