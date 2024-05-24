@@ -4,18 +4,31 @@
     <h1>My Projects</h1>
   </div>
 </div>
+<!-- Dashbaord Project-->
 <div class="content-wrapper">
   <div class="dashboard-projects">
-    <%projects.forEach(project => {%>
-    <div><%= project.name %></div>
-    <%})%>
+    <% if (projects.length === 0) { %>
+    <p>Please add a project.</p>
+    <% } else { %>
+    <% projects.forEach(project => { %>
+    <div class="project card" style="background-color: <%= project.color ? project.color + '80' : '#1b06bc80' %>;">
+
+      <h2><%= project.name %></h2>
+      <p><%= project.description %></p>
+    </div>
+    <% }); %>
+    <% } %>
   </div>
-  <aside class="aside-right">
-    <h1>Tasks</h1>
+  <!-- Dashbaord Project End-->
+
+  <!-- Task Due Today List-->
+  <aside class="dashboard-tasks">
+    <h1>Today's Tasks</h1>
     <% todaysTasks.forEach(task => {%>
     <div><%=task.title%></div>
     <%})%>
   </aside>
+  <!-- Task Due Today List End-->
 </div>
 
 <%- include('./footer.ejs')%>

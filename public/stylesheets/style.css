@@ -135,7 +135,8 @@ a {
 
 .aside {
   width: 20%;
-  background-color: #fff;
+  backdrop-filter: blur(1rem);
+  background-color: rgba(255, 255, 255, 0.5);
   border-top-right-radius: 10rem;
   border-bottom-right-radius: 10rem;
 
@@ -180,8 +181,58 @@ a {
   color: inherit;
 }
 
-/* Main Page */
+/* Dashboard */
+.dashboard-projects {
+  flex: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
 
+.dashboard-projects .card {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  height: 20rem;
+  width: 30rem;
+  backdrop-filter: blur(1rem);
+
+  filter: brightness(110%) contrast(110%);
+}
+
+.dashboard-projects .card h2 {
+  text-transform: uppercase;
+}
+
+.dashboard-projects .card h2,
+.dashboard-projects .card p {
+  color: var(--color-text);
+}
+
+.dashboard-tasks {
+  color: var(--color-background);
+  font-family: "Roboto", sans-serif;
+  flex: 1.5;
+  backdrop-filter: blur(1rem);
+  background-color: var(--color-primary);
+  opacity: 0.8;
+  height: 76dvh;
+  margin-top: -9rem;
+  margin-right: -4rem;
+  padding: 4rem 7rem 4rem 4rem;
+  border-top-left-radius: 10rem;
+  width: 100%;
+}
+
+.dashboard-tasks h1 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  margin: 5rem;
+  width: 100%;
+}
+
+/* Main Page */
 .main {
   display: flex;
   flex-direction: column;
@@ -223,10 +274,7 @@ a {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
-}
-
-.content-wrapper .aside-right {
-  background-color: #fff;
+  gap: 4rem;
 }
 
 .page-header {
@@ -292,7 +340,8 @@ a {
 
 .project-container .project-list .project {
   padding: 2rem 2rem 2rem 6rem;
-  background-color: #fff;
+  backdrop-filter: blur(1rem);
+  background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0.1rem 0.1rem 4rem rgba(0, 0, 0, 0.01);
   margin-bottom: 2rem;
   border-radius: 1rem;
@@ -355,7 +404,8 @@ a {
 }
 
 .task-container .task-list .task {
-  background-color: #fff;
+  backdrop-filter: blur(1rem);
+  background-color: rgba(255, 255, 255, 0.5);
   border-right: 1rem solid var(--color-primary);
   box-shadow: 0.1rem 0.1rem 4rem rgba(0, 0, 0, 0.01);
   border-radius: 1rem;
@@ -380,11 +430,14 @@ a {
   margin-bottom: 2rem;
   text-transform: uppercase;
 }
-
 .task-container .task-list .task .card-content textarea {
   resize: none;
   width: 100%;
-  border: #727272;
+  background-color: #f2f4f9;
+  backdrop-filter: blur(1rem);
+  opacity: 0.5;
+  border: none;
+  outline: none;
 }
 
 .task-container .task-list .task .card-content p {
