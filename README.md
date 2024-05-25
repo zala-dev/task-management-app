@@ -10,7 +10,7 @@ An application that allows users to create, organise, and track their tasks. Use
 
 ![hifi wireframe](public/docs/TaskTrackerWireframe.png)
 
-# Screenshots
+# Screenshot
 
 ![app screenshots](public/docs/TaskTrackerApplication.png)
 
@@ -26,9 +26,18 @@ An application that allows users to create, organise, and track their tasks. Use
 - Mongoose
 - Passport.js
 - Figma
+- Render
 
 # Getting Started
 
 # [App Url](https://tasktracker-tyjo.onrender.com/)
 
 # [Trello board](https://trello.com/b/n6fC5Nhs/task-manager)
+
+# Next Steps
+
+- Integrate the Google API
+- Integrate Chart.js API
+- Add Task Reminder / Push Notification
+- Add filter/sort functionality
+- Add search functionality
