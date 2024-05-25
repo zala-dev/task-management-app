@@ -138,7 +138,7 @@ a {
 
 .aside {
   width: 20%;
-  background-color: var(--color-background-white);
+  background-color: var(--color-background-white-1);
   border-top-right-radius: 10rem;
   border-bottom-right-radius: 10rem;
 
@@ -359,7 +359,8 @@ a {
   justify-content: space-between;
   padding: 2rem 2rem 2rem 6rem;
   backdrop-filter: blur(1rem);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--color-background-white);
+  opacity: 0.9;
   box-shadow: 0.1rem 0.1rem 4rem rgba(0, 0, 0, 0.01);
   margin-bottom: 2rem;
   border-radius: 1rem;
@@ -439,7 +440,8 @@ a {
 
 .task-container .task-list .task {
   backdrop-filter: blur(1rem);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--color-background-white);
+  opacity: 0.9;
   border-right: 1rem solid var(--color-primary);
   box-shadow: 0.1rem 0.1rem 4rem rgba(0, 0, 0, 0.01);
   border-radius: 1rem;
@@ -467,7 +469,7 @@ a {
 .task-container .task-list .task .card-content textarea {
   resize: none;
   width: 100%;
-  background-color: #f2f4f9;
+  background-color: var(--color-background-white);
   backdrop-filter: blur(1rem);
   opacity: 0.5;
   border: none;
