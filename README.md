@@ -12,7 +12,7 @@ An application that allows users to create, organise, and track their tasks. Use
 
 # Screenshots
 
-![app screenshots]()
+![app screenshots](public/docs/TaskTrackerApplication.png)
 
 # Technologies used
 
