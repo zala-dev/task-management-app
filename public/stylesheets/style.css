@@ -73,6 +73,11 @@ a {
   align-items: center;
   height: 100dvh;
   width: 100dvw;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("/images/hero.jpg");
 }
 
 .login-logo {
@@ -116,9 +121,11 @@ a {
   background-color: var(--color-background-white);
   padding: 1.25rem 1.85rem;
   border-radius: 1.5rem;
-  color: inherit;
+  color: var(--color-text);
   border: 0.2rem solid transparent;
   transition: all 0.3s ease;
+  box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1),
+    0 0.1rem 0.3rem rgba(0, 0, 0, 0.08);
 }
 
 .container a img {
@@ -126,7 +133,8 @@ a {
 }
 
 .container a:hover {
-  border: 0.2rem solid #2a2425;
+  box-shadow: 0 0.8rem 1rem rgba(0, 0, 0, 0.15),
+    0 0.2rem 0.4rem rgba(0, 0, 0, 0.12);
 }
 
 /* Aside Page */
@@ -597,7 +605,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 100%;
   position: relative;
 }
 
