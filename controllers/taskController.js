@@ -129,7 +129,7 @@ async function editTask(req, res) {
       task,
       projects,
       formattedDueDate,
-      title: "Edit Project",
+      title: "Edit Task",
     });
   } catch (err) {
     // Handle any errors that occur during the process
