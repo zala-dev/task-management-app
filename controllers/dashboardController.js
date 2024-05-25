@@ -6,29 +6,33 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const messages = [];
-  const todaysDate = new Date();
+  try {
+    const errorMessages = [];
+    const todaysDate = new Date();
 
-  const userId = req.user._id;
+    const userId = req.user._id;
 
-  const projects = await Project.find({ user: userId });
-  const tasks = await Task.find({ user: userId });
+    const projects = await Project.find({ user: userId });
+    const tasks = await Task.find({ user: userId });
 
-  if (projects.length === 0) {
-    messages.push("No Projects Found");
+    if (projects.length === 0) {
+      errorMessages.push("No Projects Found");
+    }
+
+    if (tasks.length === 0) {
+      errorMessages.push("No Tasks Today");
+    }
+
+    // filter today's task
+    todaysTasks = tasks.filter((task) => task.dueDate <= todaysDate);
+
+    res.render("layouts/dashboard", {
+      title: "Dashboard",
+      projects,
+      todaysTasks,
+      errorMessage: errorMessages,
+    });
+  } catch (err) {
+    res.status(500).send(err.errorMessage);
   }
-
-  if (tasks.length === 0) {
-    messages.push("No Tasks Today");
-  }
-
-  // filter today's task
-  todaysTasks = tasks.filter((task) => task.dueDate <= todaysDate);
-
-  res.render("layouts/dashboard", {
-    title: "Dashboard",
-    projects,
-    todaysTasks,
-    errorMessage: messages,
-  });
 }
