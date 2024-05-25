@@ -2,6 +2,7 @@
 :root {
   --font-size-base: 1.6rem;
   --color-text: #2a2425;
+  --color-text-light: #433c3d;
   --color-background: #e4e9f2;
   --color-primary: #1b06bc;
   --color-background-white: #fff;
@@ -511,17 +512,27 @@ a {
 }
 
 .pagination a {
-  margin-right: 1rem;
-  color: dodgerblue;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.6rem;
+  color: var(--color-background-white);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
 }
 
 .pagination a:hover {
-  text-decoration: underline;
+  background-color: var(--color-primary);
+  filter: brightness(120%);
 }
 
 /* Add  and Edit Form */
-
 .form-content form {
   display: flex;
   flex-direction: column;
