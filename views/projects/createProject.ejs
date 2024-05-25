@@ -18,6 +18,9 @@
       <a href="/projects">Go Back</a>
       <button type="submit">Add</button>
     </div>
+    <% if (errorMsg) { %>
+    <p><%= errorMsg %></p>
+    <% } %>
   </form>
 </div>
 <%- include('../layouts/footer.ejs')%>
