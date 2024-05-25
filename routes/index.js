@@ -5,6 +5,8 @@ const passport = require("passport");
 const dashboardCtrl = require("../controllers/dashboardController");
 const calendarCtrl = require("../controllers/calendarController");
 const ensuredLoggedIn = require("../config/ensureLoggedIn");
+
+// function render Login page
 router.get("/", function (req, res, next) {
   res.render("auth/login.ejs", { title: "Task Tracker" });
 });
