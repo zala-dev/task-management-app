@@ -101,8 +101,34 @@ async function newTask(req, res) {
 // function to delete a task
 async function deleteTask(req, res) {
   try {
+    // Find current task ID
+    const task = await Task.findById(req.params.id);
+
+    console.log("Delete Task Current Properties: ", task);
+
+    // If task is not found, return a 404 response
+    if (!task) {
+      return res.status(404).send("Task not found");
+    }
+
+    // If the task has associated project, update the project's task array
+    if (task.project) {
+      const project = await Project.findById(task.project);
+
+      if (project) {
+        // delete the task from the project's tasks array
+        project.tasks = project.tasks.filter(
+          (projectTask) =>
+            projectTask.title.toString() !== task.title.toString()
+        );
+
+        // save the updated project
+        await project.save();
+      }
+    }
     // Delete the task based on the provided ID
     await Task.deleteOne({ _id: req.params.id });
+
     // Redirect to the tasks page after deletion
     res.redirect("/tasks");
   } catch (err) {
@@ -154,6 +180,7 @@ async function updateTask(req, res) {
 
     // Fetch the new project by ID
     const newProject = await Project.findById(newProjectId);
+
     if (!newProject) {
       return res.status(404).send("New project not found");
     }
